@@ -1,0 +1,16 @@
+# Environment
+venv/
+.conda/
+__pycache__/
+*.pyc
+
+# Data (too large for git)
+data/raw/
+data/processed/*.npy
+data/processed/*.pkl
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS Files
+.DS_Store
