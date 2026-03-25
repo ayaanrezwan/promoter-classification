@@ -1,0 +1,163 @@
+############################################################
+# PHASE 3: TEST SET EVALUATION
+############################################################
+
+============================================================
+FINAL EVALUATION ON HELD-OUT TEST SET
+============================================================
+
+--- Logistic Regression ---
+      accuracy: 0.9582
+     precision: 0.9609
+        recall: 0.9553
+            f1: 0.9581
+       roc_auc: 0.9926
+
+  Confusion Matrix:
+    Predicted:   Non-Prom  Promoter
+    Actual NP:      3163       128
+    Actual P:        147      3144
+
+              precision    recall  f1-score   support
+
+Non-promoter       0.96      0.96      0.96      3291
+    Promoter       0.96      0.96      0.96      3291
+
+    accuracy                           0.96      6582
+   macro avg       0.96      0.96      0.96      6582
+weighted avg       0.96      0.96      0.96      6582
+
+
+--- SVM ---
+      accuracy: 0.9745
+     precision: 0.9797
+        recall: 0.9690
+            f1: 0.9743
+       roc_auc: 0.9971
+
+  Confusion Matrix:
+    Predicted:   Non-Prom  Promoter
+    Actual NP:      3225        66
+    Actual P:        102      3189
+
+              precision    recall  f1-score   support
+
+Non-promoter       0.97      0.98      0.97      3291
+    Promoter       0.98      0.97      0.97      3291
+
+    accuracy                           0.97      6582
+   macro avg       0.97      0.97      0.97      6582
+weighted avg       0.97      0.97      0.97      6582
+
+
+--- Random Forest ---
+      accuracy: 0.9658
+     precision: 0.9791
+        recall: 0.9520
+            f1: 0.9653
+       roc_auc: 0.9951
+
+  Confusion Matrix:
+    Predicted:   Non-Prom  Promoter
+    Actual NP:      3224        67
+    Actual P:        158      3133
+
+              precision    recall  f1-score   support
+
+Non-promoter       0.95      0.98      0.97      3291
+    Promoter       0.98      0.95      0.97      3291
+
+    accuracy                           0.97      6582
+   macro avg       0.97      0.97      0.97      6582
+weighted avg       0.97      0.97      0.97      6582
+
+
+============================================================
+MODEL COMPARISON SUMMARY
+============================================================
+  Model                   Accuracy  Precision   Recall       F1   ROC-AUC
+  --------------------------------------------------------------------
+  Logistic Regression       0.9582     0.9609   0.9553   0.9581    0.9926
+  SVM                       0.9745     0.9797   0.9690   0.9743    0.9971
+  Random Forest             0.9658     0.9791   0.9520   0.9653    0.9951
+
+############################################################
+# PHASE 4: FEATURE IMPORTANCE
+############################################################
+
+============================================================
+FEATURE IMPORTANCE ANALYSIS
+============================================================
+
+--- Logistic Regression ---
+  Importance type: coefficient
+  Top 15 most important k-mers:
+    K-mer      Importance Direction           
+    ------------------------------------------
+    CGA          -1.15570 -> non-promoter     
+    TTT          +1.12831 -> promoter         
+    AAA          +1.12730 -> promoter         
+    TCG          -0.86484 -> non-promoter     
+    GTA          -0.72168 -> non-promoter     
+    CGT          -0.70795 -> non-promoter     
+    GAT          -0.69289 -> non-promoter     
+    GAC          -0.58552 -> non-promoter     
+    TAC          -0.55979 -> non-promoter     
+    GCA          -0.54557 -> non-promoter     
+    CTA          -0.53418 -> non-promoter     
+    CTG          +0.52761 -> promoter         
+    GCG          +0.49814 -> promoter         
+    AGA          +0.49673 -> promoter         
+    ACG          -0.48324 -> non-promoter     
+
+--- SVM ---
+  SVM with 'rbf' kernel — no direct feature importances.
+  Importance type: not available (non-linear kernel)
+  Top 15 most important k-mers:
+    K-mer      Importance Direction           
+    ------------------------------------------
+    AAA          +0.00000 -> non-promoter     
+    AAC          +0.00000 -> non-promoter     
+    AAG          +0.00000 -> non-promoter     
+    AAT          +0.00000 -> non-promoter     
+    ACA          +0.00000 -> non-promoter     
+    ACC          +0.00000 -> non-promoter     
+    ACG          +0.00000 -> non-promoter     
+    ACT          +0.00000 -> non-promoter     
+    AGA          +0.00000 -> non-promoter     
+    AGC          +0.00000 -> non-promoter     
+    AGG          +0.00000 -> non-promoter     
+    AGT          +0.00000 -> non-promoter     
+    ATA          +0.00000 -> non-promoter     
+    ATC          +0.00000 -> non-promoter     
+    ATG          +0.00000 -> non-promoter     
+
+--- Random Forest ---
+  Importance type: Gini importance
+  Top 15 most important k-mers:
+    K-mer      Importance Direction           
+    ------------------------------------------
+    ACG          +0.09188 (Gini: 0.09188)     
+    CGA          +0.07756 (Gini: 0.07756)     
+    CGT          +0.07605 (Gini: 0.07605)     
+    TAC          +0.06148 (Gini: 0.06148)     
+    TCG          +0.05809 (Gini: 0.05809)     
+    GTA          +0.04937 (Gini: 0.04937)     
+    GCG          +0.02819 (Gini: 0.02819)     
+    CCG          +0.02690 (Gini: 0.02690)     
+    CGG          +0.02540 (Gini: 0.02540)     
+    CGC          +0.02428 (Gini: 0.02428)     
+    AAA          +0.02354 (Gini: 0.02354)     
+    TTT          +0.02254 (Gini: 0.02254)     
+    ACC          +0.02075 (Gini: 0.02075)     
+    GGC          +0.02007 (Gini: 0.02007)     
+    ATC          +0.01932 (Gini: 0.01932)     
+
+Results saved to results/metrics/
+
+============================================================
+PIPELINE COMPLETE
+============================================================
+
+Results saved to results/metrics/
+
