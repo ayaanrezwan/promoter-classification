@@ -82,7 +82,7 @@ def get_models():
             ('clf', SVC(probability=True, random_state=42))
         ]),
         'param_grid': {
-            'clf__C': [0.1, 1.0, 10.0, 100.0],
+            'clf__C': [0.1, 1.0, 10.0],
             'clf__kernel': ['linear', 'rbf'],
             'clf__gamma': ['scale', 'auto']
         }
