@@ -20,6 +20,7 @@ Project: Human Promoter Classification
 
 import numpy as np
 from itertools import product
+import os 
 
 
 # =============================================================================
