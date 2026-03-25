@@ -1,16 +1,30 @@
-# Environment
-venv/
-.conda/
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
 
-# Data (too large for git)
+# Environments
+venv/
+env/
+.conda/
+
+# Data (too large for git — see data/README.md for download instructions)
 data/raw/
 data/processed/*.npy
 data/processed/*.pkl
 
-# Jupyter checkpoints
-.ipynb_checkpoints/
+# Results that can be regenerated
+results/metrics/*.pkl
 
-# OS Files
+# OS files
 .DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
